@@ -9,8 +9,11 @@ const objStatements = {
 const img = document.querySelector('.img')
 const btnContainer = document.querySelector('.btn-container')
 const statement = document.querySelector('.statement')
+const btnOnThePage = document.querySelectorAll('.btn')
 
 btnContainer.addEventListener('click', findBtnItem)
+btnContainer.addEventListener('mouseover', findElMouseOver)
+btnContainer.addEventListener('mouseout', findElMouseOut)
 
 function findBtnItem(event) {
     let targetEl = event.target
@@ -31,6 +34,7 @@ function findIdBtn(el) {
 
     searchLinkForImg(btnId)
     searchTextForStatement(btnId)
+    changeActiveClassBtn(btnId)
 }
 
 function searchLinkForImg(id) {
@@ -120,3 +124,93 @@ function preloadImages() {
 }
 
 preloadImages()
+
+function changeActiveClassBtn(id) {
+    let arrBtn = Array.from(btnOnThePage)
+
+    let clickEl = arrBtn.find((item) => {
+      if (item.getAttribute('id') === id) {
+        return item
+      }
+    })
+
+    for (let i = 0; i < arrBtn.length; i++) {
+      setTimeout(() => {
+        arrBtn[i].classList.remove('active')
+        arrBtn[i].style.background = 'rgb(34, 124, 251)'
+      }, 100)
+
+      if (arrBtn[i] == clickEl) {
+        setTimeout(() => {
+          arrBtn[i].classList.add('active')
+          arrBtn[i].style.background = '#323c39'
+        }, 100)
+      }
+    }
+  }
+
+  function findElMouseOver(event) {
+    let targetEnter = event.target
+    let element = findEl(targetEnter)
+
+    addStyleForBtn(element)
+  }
+
+  function findElMouseOut(event) {
+    let targetOut = event.target
+    let element = findEl(targetOut)
+
+    removeStyleForBtn(element)
+  }
+
+  function findEl(item) {
+    let result
+
+    if (item.nodeName.toLowerCase() == 'button') {
+      result = item
+    }
+    if (item.nodeName.toLowerCase() == 'div') {
+      result = item.firstElementChild
+    }
+    if (result.classList.contains('btn-item')) {
+      return null
+    }
+    // console.log('result', result);
+    return result
+  }
+
+  function addStyleForBtn(el) {
+    if (el == null) {
+      return
+    } else {
+      if (el.classList.contains('active')) {
+        setTimeout(() => {
+          el.style.borderColor = '#fff'
+          el.style.background = '#323c39'
+        }, 300)
+      } else {
+        setTimeout(() => {
+          el.style.borderColor = '#fff'
+          el.style.background = '#fff'
+        }, 300)
+      }
+    }
+  }
+
+  function removeStyleForBtn(el) {
+    if (el == null) {
+      return
+    } else {
+      if (el.classList.contains('active')) {
+        setTimeout(() => {
+          el.style.borderColor = 'rgb(34, 124, 251)'
+          el.style.background = '#323c39'
+      }, 300)
+      } else {
+        setTimeout(() => {
+          el.style.borderColor = 'rgb(34, 124, 251)'
+          el.style.background = 'rgb(34, 124, 251)'
+      }, 300)
+      }
+    }
+  }
