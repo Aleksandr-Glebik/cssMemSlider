@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+    font-family: 'Titillium Web', sans-serif;
+}
+body {
+   background: #323c39;
+}
+.wrapper {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}
+.header {
+    max-width: 1280px;
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-title {
+    font-size: 3.6rem;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    color: rgb(235, 235, 235);
+}
+.main-container {
+    max-width: 1280px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.img-container {
+    max-width: 1280px;
+    width: 100%;
+    height: 65rem;
+    padding: 0 2rem;
+}
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3rem;
+}
+.controls-container {
+    padding: 0 2rem;
+    margin-top: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-container {
+    width: 26rem;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    order: 1;
+}
+.statement {
+    font-size: 2.8rem;
+    font-weight: normal;
+    font-style: italic;
+    letter-spacing: 0.2rem;
+    color: rgb(235, 235, 235);
+    padding: 0 0 4rem;
+}
+.btn-item {
+    cursor: pointer;
+    padding: 2rem 1.5rem;
+}
+.btn {
+    border: none;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 0.3rem solid rgb(34, 124, 251);
+    transition: all 0.5s;
+    background: rgb(34, 124, 251);
+}
+.active {
+    border-color: rgb(34, 124, 251);
+    background: #323c39;
+}
