@@ -110,3 +110,13 @@ function changeText(str) {
      statement.classList.remove('focus-in-contract-bck')
     }, 1000)
 }
+
+function preloadImages() {
+    Object.keys(objStatements).forEach((el) => {
+        const img = new Image()
+        img.src = `./img/${el}.jpg`
+        // console.log('img', img);
+    })
+}
+
+preloadImages()

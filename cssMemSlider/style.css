@@ -91,3 +91,33 @@ body {
     border-color: rgb(34, 124, 251);
     background: #323c39;
 }
+
+.focus-in-contract-bck {
+    animation:focus-in-contract-bck 1s cubic-bezier(.25,.46,.45,.94) both
+}
+@keyframes focus-in-contract-bck {
+    0% {
+     letter-spacing:1em;
+     transform:translateZ(300px);
+     filter:blur(12px);
+     opacity:0
+    }
+    100% {
+     transform:translateZ(12px);
+     filter:blur(0);
+     opacity:1
+    }
+}
+.fade-in-right {
+    animation:fade-in-right .6s cubic-bezier(.39,.575,.565,1.000) both
+}
+@keyframes fade-in-right{
+    0% {
+     transform:translateX(50px);
+     opacity:0
+    }
+    100% {
+     transform:translateX(0);
+     opacity:1
+    }
+}
